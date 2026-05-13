@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Papillon Panel</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: linear-gradient(135deg, #0a1f44, #1e3c72);
+  color: #cfe8ff;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background: rgba(0,0,0,0.3);
+  font-weight: bold;
+}
+
+.viewer {
+  width: 180px;
+  height: 50px;
+}
+
+.title {
+  font-size: 16px;
+  padding: 8px;
+  text-align: center;
+  color: #d8f0ff;
+  font-weight: bold;
+  letter-spacing: 1px;
+
+  /* effet glow féérique */
+  text-shadow: 
+    0 0 5px rgba(168, 216, 255, 0.6),
+    0 0 10px rgba(168, 216, 255, 0.4);
+
+  /* petit fond pour lisibilité */
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.widget {
+  background: rgba(255,255,255,0.06);
+  border-radius: 15px;
+  padding: 8px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* GRID */
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* BLOCS */
+.widget {
+  background: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  padding: 5px;
+  backdrop-filter: blur(10px);
+}
+
+/* IFRAME */
+iframe {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+/* HAUTEURS */
+.chat { height: 500px; }
+.gifts { height: 420px; }
+.vertical { height: 400px; }
+.line { height: 70px; }
+
+/* TABLE last events */
+.table {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 700px) {
+  .table {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.table iframe {
+  height: 120px;
+  transform: scale(0.9);
+  transform-origin: top center;
+  display: block;
+}
+
+
+/* TOP côte à côte */
+.top-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}
+
+/* Mot de passe */
+#login-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0a1f44, #1e3c72);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.login-box {
+  background: rgba(0,0,0,0.4);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(100,150,255,0.5);
+}
+
+.login-box h2 {
+  color: #cfe8ff;
+}
+
+.login-box input {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
+  width: 200px;
+}
+
+.login-box button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #4da6ff;
+  color: white;
+  cursor: pointer;
+}
+
+#error {
+  color: #ff6b6b;
+  font-size: 12px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="login-screen">
+  <div class="login-box">
+    <h2>🦋 Accès Papillon</h2>
+    <input type="password" id="password" placeholder="Mot de passe">
+    <button onclick="checkPassword()">Entrer</button>
+    <p id="error"></p>
+  </div>
+</div>
+
+<div class="header">
+  <div>🦋 PAPILLØN BLA FAMILJA • 👼 Team Renaissance</div>
+  <iframe class="viewer" src="https://tikfinity.zerody.one/widget/viewercount?cid=3193073"></iframe>
+</div>
+
+<div class="container">
+
+  <!-- GAUCHE -->
+  <div>
+
+    <div class="widget">
+			<div class="title">💬 Chat</div>
+      <iframe class="chat" src="https://tikfinity.zerody.one/widget/chat?cid=3193073"></iframe>
+    </div>
+
+    <div class="widget">
+			<div class="title">🎁 Gifts</div>
+      <iframe class="gifts" src="https://tikfinity.zerody.one/widget/gifts?cid=3193073"></iframe>
+    </div>
+
+		<div class="widget">
+			<div class="title">📊 Viewer & Activité</div>
+
+			<div class="table">
+
+				<div class="event">
+					<div class="event-title">👤 Last Follow</div>
+					<iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=follower"></iframe>
+				</div>
+
+				<div class="event">
+					<div class="event-title">🎁 Last Gift</div>
+					<iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=gifter"></iframe>
+				</div>
+
+				<div class="event">
+					<div class="event-title">⭐ Last Sub</div>
+					<iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=subscriber"></iframe>
+				</div>
+
+				<div class="event">
+					<div class="event-title">🔄 Last Share</div>
+					<iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=share"></iframe>
+				</div>
+
+				<div class="event">
+					<div class="event-title">❤️ Last Like</div>
+					<iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=like"></iframe>
+				</div>
+
+  </div>
+</div>
+
+
+  </div>
+
+  <!-- DROITE -->
+  <div>
+
+    <div class="widget top-grid">
+			<div>
+				<div class="title">🏆 Top Gifters</div>
+				<iframe class="vertical" src="https://tikfinity.zerody.one/widget/topgifter?cid=3193073"></iframe>
+			</div>
+			<div>
+				<div class="title">❤️ Top Likers</div>
+				<iframe class="vertical" src="https://tikfinity.zerody.one/widget/topliker?cid=3193073"></iframe>
+			</div>
+    </div>
+
+    <div class="widget">
+			<div class="title">🎵 Song Requests</div>
+      <iframe class="vertical" src="https://tikfinity.zerody.one/widget/songrequests?cid=3193073"></iframe>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+const correctPassword = "251289";
+
+function checkPassword() {
+  const input = document.getElementById("password").value;
+
+  if (input === correctPassword) {
+    document.getElementById("login-screen").style.display = "none";
+  } else {
+    document.getElementById("error").innerText = "Mot de passe incorrect";
+  }
+}
+</script>
+
+</body>
+</html>
