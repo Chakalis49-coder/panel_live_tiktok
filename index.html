@@ -41,13 +41,13 @@ body {
   white-space: nowrap;
 }
 
-/* ✅ FIX IFRAME (IMPORTANT) */
 .viewer-inline iframe {
-  height: 50px;
-  min-width: 85px;
+  width: 110px;        /* ✅ largeur fixe */
+  height: 60px;        /* ✅ plus grand */
   border: none;
-  display: block;
-  transform: translateY(-3px);
+
+  transform: scale(1.2) translateY(-6px); /* 🔥 magie ici */
+  transform-origin: center;
 }
 
 /* TITRES */
