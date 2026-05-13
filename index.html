@@ -23,7 +23,28 @@ body {
 }
 
 .viewer-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   margin-left: auto;
+}
+
+/* texte */
+.viewer-inline span {
+  color: #8ec5ff;
+  font-size: 16px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+/* iframe FIX */
+.viewer-inline iframe {
+  height: 44px;        /* 🔥 augmente un peu */
+  min-width: 75px;
+  width: auto;
+  border: none;
+  display: block;
 }
 
 .title {
