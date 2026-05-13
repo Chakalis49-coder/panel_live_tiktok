@@ -13,156 +13,6 @@ body {
   color: #cfe8ff;
 }
 
-/* HEADER */
-.header {
-  display: flex;
-  align-items: stretch;
-  padding: 10px 15px;
-  background: rgba(0,0,0,0.3);
-  font-weight: bold;
-}
-
-.viewer-inline {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-left: auto;
-  background: rgba(255,255,255,0.08);
-  padding: 4px 10px;
-  border-radius: 20px;
-}
-
-.viewer-inline span {
-  color: #8ec5ff;
-  font-size: 16px;
-  white-space: nowrap;
-}
-
-.viewer-inline iframe {
-  width: 110px;
-  height: 50px;
-  border: none;
-}
-
-/* TITRES */
-.title {
-  font-size: 16px;
-  padding: 8px;
-  text-align: center;
-  color: #d8f0ff;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-shadow: 
-    0 0 5px rgba(168, 216, 255, 0.6),
-    0 0 10px rgba(168, 216, 255, 0.4);
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  margin-bottom: 5px;
-}
-
-/* WIDGET */
-.widget {
-  background: rgba(255,255,255,0.06);
-  border-radius: 15px;
-  padding: 10px;
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.15);
-}
-
-.event {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.event-title {
-  position: relative;
-  z-index: 2; /* ✅ au-dessus de l'iframe */
-}
-
-.event iframe {
-  position: relative;
-  z-index: 1;
-}
-
-.event-title {
-  font-size: 13px;
-  color: #8ec5ff;
-  margin-bottom: 6px;
-  text-align: center;
-  font-weight: bold;
-
-  background: rgba(0,0,0,0.25); /* ✅ fond pour lisibilité */
-  padding: 4px;
-  border-radius: 6px;
-}
-
-/* GRID */
-.container {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 10px;
-  padding: 10px;
-}
-
-@media (max-width: 768px) {
-  .container {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* IFRAME GLOBAL */
-iframe {
-  width: 100%;
-  border: none;
-  border-radius: 10px;
-}
-
-/* HAUTEURS */
-.chat { height: 500px; }
-.gifts { height: 420px; }
-.vertical { height: 400px; }
-
-/* TABLE */
-.table {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-}
-
-@media (min-width: 700px) {
-  .table {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* ✅ EVENT BLOCK */
-.event {
-  background: rgba(255,255,255,0.05);
-  border-radius: 12px;
-  padding: 6px;
-  border: 1px solid rgba(255,255,255,0.08);
-}
-
-.event-title {
-  font-size: 13px;
-  color: #8ec5ff;
-  margin-bottom: 4px;
-  text-align: center;
-  text-shadow: 0 0 6px rgba(142,197,255,0.5);
-}
-
-.event iframe {
-  height: 110px;
-}
-
-/* TOP GRID */
-.top-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5px;
-}
-
 /* LOGIN */
 #login-screen {
   position: fixed;
@@ -202,31 +52,113 @@ iframe {
   color: white;
 }
 
-/* ✅ MOBILE */
-@media (max-width: 600px) {
+/* HEADER */
+.header {
+  display: flex;
+  padding: 10px 15px;
+  background: rgba(0,0,0,0.3);
+  font-weight: bold;
+}
 
-  .header {
-    flex-direction: column;
-    gap: 8px;
+.viewer-inline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  background: rgba(255,255,255,0.08);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.viewer-inline iframe {
+  width: 110px;
+  height: 50px;
+}
+
+/* WIDGET */
+.widget {
+  background: rgba(255,255,255,0.06);
+  border-radius: 15px;
+  padding: 10px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+/* GRID */
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
   }
+}
 
-  .viewer-inline {
-    align-self: flex-end;
+/* EVENT */
+.table {
+  display: grid;
+  gap: 10px;
+}
+
+@media (min-width: 700px) {
+  .table {
+    grid-template-columns: 1fr 1fr;
   }
+}
 
-  .viewer-inline iframe {
-    width: 120px;
-  }
+.event {
+  background: rgba(255,255,255,0.05);
+  padding: 6px;
+  border-radius: 10px;
+}
 
-  .event iframe {
-    height: 130px; /* ✅ plus lisible mobile */
-  }
+.event-title {
+  text-align: center;
+  font-size: 13px;
+  margin-bottom: 5px;
+  background: rgba(0,0,0,0.3);
+  padding: 4px;
+  border-radius: 6px;
+}
 
+iframe {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+.chat { height: 500px; }
+.gifts { height: 420px; }
+.vertical { height: 400px; }
+
+.top-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
 }
 </style>
 </head>
 
 <body>
+
+<!-- ✅ LOGIN -->
+<div id="login-screen">
+  <div class="login-box">
+    <h2>🦋 Accès Papillon</h2>
+    <input type="password" id="password" placeholder="Mot de passe">
+    <button onclick="checkPassword()">Entrer</button>
+    <p id="error" style="color:red;"></p>
+  </div>
+</div>
 
 <!-- HEADER -->
 <div class="header">
@@ -240,9 +172,7 @@ iframe {
 
 <div class="container">
 
-  <!-- GAUCHE -->
   <div>
-
     <div class="widget">
       <div class="title">💬 Chat</div>
       <iframe class="chat" src="https://tikfinity.zerody.one/widget/chat?cid=3193073"></iframe>
@@ -253,12 +183,10 @@ iframe {
       <iframe class="gifts" src="https://tikfinity.zerody.one/widget/gifts?cid=3193073"></iframe>
     </div>
 
-    <!-- ✅ FIX ICI -->
     <div class="widget">
       <div class="title">📊 Viewer & Activité</div>
 
       <div class="table">
-
         <div class="event">
           <div class="event-title">👤 Last Follow</div>
           <iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=follower"></iframe>
@@ -283,15 +211,11 @@ iframe {
           <div class="event-title">❤️ Last Like</div>
           <iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=like"></iframe>
         </div>
-
       </div>
     </div>
-
   </div>
 
-  <!-- DROITE -->
   <div>
-
     <div class="widget top-grid">
       <div>
         <div class="title">🏆 Top Gifters</div>
@@ -307,10 +231,29 @@ iframe {
       <div class="title">🎵 Song Requests</div>
       <iframe class="vertical" src="https://tikfinity.zerody.one/widget/songrequests?cid=3193073"></iframe>
     </div>
-
   </div>
 
 </div>
+
+<script>
+const correctPassword = "251289";
+
+function checkPassword() {
+  const input = document.getElementById("password").value;
+
+  if (input === correctPassword) {
+    document.getElementById("login-screen").style.display = "none";
+  } else {
+    document.getElementById("error").innerText = "Mot de passe incorrect";
+  }
+}
+
+document.getElementById("password").addEventListener("keydown", function(e) {
+  if (e.key === "Enter") {
+    checkPassword();
+  }
+});
+</script>
 
 </body>
 </html>
