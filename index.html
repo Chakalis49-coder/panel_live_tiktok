@@ -23,11 +23,6 @@ body {
   font-weight: bold;
 }
 
-.viewer {
-  width: 180px;
-  height: 50px;
-}
-
 .title {
   font-size: 16px;
   padding: 8px;
@@ -167,6 +162,26 @@ iframe {
   font-size: 12px;
 }
 
+/* Viewer counter */
+.viewer-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.viewer-inline span {
+  color: #8ec5ff;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+/* 🔥 override du style global iframe */
+.viewer-inline iframe {
+  width: 60px;
+  height: 40px;
+  border: none;
+}
+	
 </style>
 </head>
 
