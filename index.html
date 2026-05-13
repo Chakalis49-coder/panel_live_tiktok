@@ -22,17 +22,17 @@ body {
   font-weight: bold;
 }
 
-/* ✅ FIX viewer */
 .viewer-inline {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 6px;
   margin-left: auto;
 
-  /* petit style clean */
   background: rgba(255,255,255,0.08);
-  padding: 3px 10px;
+  padding: 3px 8px;
   border-radius: 20px;
+
+  overflow: hidden; /* ✅ coupe le vide */
 }
 
 .viewer-inline span {
@@ -42,12 +42,12 @@ body {
 }
 
 .viewer-inline iframe {
-  width: 110px;        /* ✅ largeur fixe */
-  height: 60px;        /* ✅ plus grand */
+  width: 95px;      /* ✅ largeur réduite */
+  height: 55px;
   border: none;
 
-  transform: scale(1.2) translateY(-6px); /* 🔥 magie ici */
-  transform-origin: center;
+  transform: scale(1.25) translateX(-8px) translateY(-5px);
+  transform-origin: left center;
 }
 
 /* TITRES */
