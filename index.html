@@ -29,10 +29,10 @@ body {
   margin-left: auto;
 
   background: rgba(255,255,255,0.08);
-  padding: 3px 8px;
+  padding: 4px 10px;
   border-radius: 20px;
 
-  overflow: hidden; /* ✅ coupe le vide */
+  overflow: hidden;
 }
 
 .viewer-inline span {
@@ -42,12 +42,9 @@ body {
 }
 
 .viewer-inline iframe {
-  width: 95px;      /* ✅ largeur réduite */
-  height: 55px;
+  width: 110px;   /* ✅ taille réelle */
+  height: 50px;
   border: none;
-
-  transform: scale(1.25) translateX(-8px) translateY(-5px);
-  transform-origin: left center;
 }
 
 /* TITRES */
@@ -115,9 +112,7 @@ iframe {
 }
 
 .table iframe {
-  height: 120px;
-  transform: scale(0.9);
-  transform-origin: top center;
+  height: 140px; /* ✅ taille réelle → plus de coupe */
 }
 
 /* TOP GRID */
@@ -175,7 +170,8 @@ iframe {
   color: #ff6b6b;
   font-size: 12px;
 }
-  
+
+/* ✅ MOBILE FIX */
 @media (max-width: 600px) {
 
   .header {
@@ -187,14 +183,15 @@ iframe {
   .viewer-inline {
     margin-left: 0;
     align-self: flex-end;
-    overflow: hidden;
   }
 
   .viewer-inline iframe {
-    width: 120px;   /* ✅ vraie largeur */
+    width: 120px;
     height: 50px;
-    
-    transform: none; /* ❌ on enlève le scale */
+  }
+
+  .table iframe {
+    height: 160px; /* ✅ encore plus lisible mobile */
   }
 
 }
