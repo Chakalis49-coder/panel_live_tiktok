@@ -22,31 +22,35 @@ body {
   font-weight: bold;
 }
 
+/* ✅ FIX viewer */
 .viewer-inline {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   margin-left: auto;
+
+  /* petit style clean */
+  background: rgba(255,255,255,0.08);
+  padding: 3px 10px;
+  border-radius: 20px;
 }
 
-/* texte */
 .viewer-inline span {
   color: #8ec5ff;
   font-size: 16px;
   white-space: nowrap;
-  display: flex;
-  align-items: center;
 }
 
-/* iframe FIX */
+/* ✅ FIX IFRAME (IMPORTANT) */
 .viewer-inline iframe {
-  height: 44px;        /* 🔥 augmente un peu */
-  min-width: 75px;
-  width: auto;
+  height: 50px;
+  min-width: 85px;
   border: none;
   display: block;
+  transform: translateY(-3px);
 }
 
+/* TITRES */
 .title {
   font-size: 16px;
   padding: 8px;
@@ -54,18 +58,15 @@ body {
   color: #d8f0ff;
   font-weight: bold;
   letter-spacing: 1px;
-
-  /* effet glow féérique */
   text-shadow: 
     0 0 5px rgba(168, 216, 255, 0.6),
     0 0 10px rgba(168, 216, 255, 0.4);
-
-  /* petit fond pour lisibilité */
   background: rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   margin-bottom: 5px;
 }
 
+/* WIDGET */
 .widget {
   background: rgba(255,255,255,0.06);
   border-radius: 15px;
@@ -88,15 +89,7 @@ body {
   }
 }
 
-/* BLOCS */
-.widget {
-  background: rgba(255,255,255,0.05);
-  border-radius: 15px;
-  padding: 5px;
-  backdrop-filter: blur(10px);
-}
-
-/* IFRAME */
+/* IFRAME GLOBAL */
 iframe {
   width: 100%;
   border: none;
@@ -107,9 +100,8 @@ iframe {
 .chat { height: 500px; }
 .gifts { height: 420px; }
 .vertical { height: 400px; }
-.line { height: 70px; }
 
-/* TABLE last events */
+/* TABLE */
 .table {
   display: grid;
   grid-template-columns: 1fr;
@@ -126,18 +118,16 @@ iframe {
   height: 120px;
   transform: scale(0.9);
   transform-origin: top center;
-  display: block;
 }
 
-
-/* TOP côte à côte */
+/* TOP GRID */
 .top-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5px;
 }
 
-/* Mot de passe */
+/* LOGIN */
 #login-screen {
   position: fixed;
   top: 0;
@@ -185,32 +175,12 @@ iframe {
   color: #ff6b6b;
   font-size: 12px;
 }
-
-/* Viewer counter */
-.viewer-inline {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.viewer-inline span {
-  color: #8ec5ff;
-  font-size: 16px;
-  white-space: nowrap;
-}
-
-/* 🔥 override du style global iframe */
-.viewer-inline iframe {
-  min-width: 70px;
-  width: auto;
-  height: 40px;
-}
-	
 </style>
 </head>
 
 <body>
 
+<!-- LOGIN -->
 <div id="login-screen">
   <div class="login-box">
     <h2>🦋 Accès Papillon</h2>
@@ -220,6 +190,7 @@ iframe {
   </div>
 </div>
 
+<!-- HEADER -->
 <div class="header">
   <div>🦋 PAPILLØN BLA FAMILJA • 👼 Team Renaissance</div>
 
@@ -229,55 +200,32 @@ iframe {
   </div>
 </div>
 
-
 <div class="container">
 
   <!-- GAUCHE -->
   <div>
 
     <div class="widget">
-			<div class="title">💬 Chat</div>
+      <div class="title">💬 Chat</div>
       <iframe class="chat" src="https://tikfinity.zerody.one/widget/chat?cid=3193073"></iframe>
     </div>
 
     <div class="widget">
-			<div class="title">🎁 Gifts</div>
+      <div class="title">🎁 Gifts</div>
       <iframe class="gifts" src="https://tikfinity.zerody.one/widget/gifts?cid=3193073"></iframe>
     </div>
 
-		<div class="widget">
-			<div class="title">📊 Viewer & Activité</div>
+    <div class="widget">
+      <div class="title">📊 Viewer & Activité</div>
 
-			<div class="table">
-
-				<div class="event">
-					<div class="event-title">👤 Last Follow</div>
-					<iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=follower"></iframe>
-				</div>
-
-				<div class="event">
-					<div class="event-title">🎁 Last Gift</div>
-					<iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=gifter"></iframe>
-				</div>
-
-				<div class="event">
-					<div class="event-title">⭐ Last Sub</div>
-					<iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=subscriber"></iframe>
-				</div>
-
-				<div class="event">
-					<div class="event-title">🔄 Last Share</div>
-					<iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=share"></iframe>
-				</div>
-
-				<div class="event">
-					<div class="event-title">❤️ Last Like</div>
-					<iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=like"></iframe>
-				</div>
-
-  </div>
-</div>
-
+      <div class="table">
+        <iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=follower"></iframe>
+        <iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=gifter"></iframe>
+        <iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=subscriber"></iframe>
+        <iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=share"></iframe>
+        <iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=like"></iframe>
+      </div>
+    </div>
 
   </div>
 
@@ -285,18 +233,18 @@ iframe {
   <div>
 
     <div class="widget top-grid">
-			<div>
-				<div class="title">🏆 Top Gifters</div>
-				<iframe class="vertical" src="https://tikfinity.zerody.one/widget/topgifter?cid=3193073"></iframe>
-			</div>
-			<div>
-				<div class="title">❤️ Top Likers</div>
-				<iframe class="vertical" src="https://tikfinity.zerody.one/widget/topliker?cid=3193073"></iframe>
-			</div>
+      <div>
+        <div class="title">🏆 Top Gifters</div>
+        <iframe class="vertical" src="https://tikfinity.zerody.one/widget/topgifter?cid=3193073"></iframe>
+      </div>
+      <div>
+        <div class="title">❤️ Top Likers</div>
+        <iframe class="vertical" src="https://tikfinity.zerody.one/widget/topliker?cid=3193073"></iframe>
+      </div>
     </div>
 
     <div class="widget">
-			<div class="title">🎵 Song Requests</div>
+      <div class="title">🎵 Song Requests</div>
       <iframe class="vertical" src="https://tikfinity.zerody.one/widget/songrequests?cid=3193073"></iframe>
     </div>
 
@@ -316,7 +264,8 @@ function checkPassword() {
     document.getElementById("error").innerText = "Mot de passe incorrect";
   }
 }
-	
+
+/* ✅ touche entrée */
 document.getElementById("password").addEventListener("keydown", function(e) {
   if (e.key === "Enter") {
     checkPassword();
