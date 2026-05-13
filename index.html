@@ -27,12 +27,9 @@ body {
   align-items: center;
   gap: 6px;
   margin-left: auto;
-
   background: rgba(255,255,255,0.08);
   padding: 4px 10px;
   border-radius: 20px;
-
-  overflow: hidden;
 }
 
 .viewer-inline span {
@@ -42,7 +39,7 @@ body {
 }
 
 .viewer-inline iframe {
-  width: 110px;   /* ✅ taille réelle */
+  width: 110px;
   height: 50px;
   border: none;
 }
@@ -67,7 +64,7 @@ body {
 .widget {
   background: rgba(255,255,255,0.06);
   border-radius: 15px;
-  padding: 8px;
+  padding: 10px;
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255,255,255,0.15);
 }
@@ -111,8 +108,24 @@ iframe {
   }
 }
 
-.table iframe {
-  height: 140px; /* ✅ taille réelle → plus de coupe */
+/* ✅ EVENT BLOCK */
+.event {
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 6px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.event-title {
+  font-size: 13px;
+  color: #8ec5ff;
+  margin-bottom: 4px;
+  text-align: center;
+  text-shadow: 0 0 6px rgba(142,197,255,0.5);
+}
+
+.event iframe {
+  height: 110px;
 }
 
 /* TOP GRID */
@@ -144,10 +157,6 @@ iframe {
   box-shadow: 0 0 20px rgba(100,150,255,0.5);
 }
 
-.login-box h2 {
-  color: #cfe8ff;
-}
-
 .login-box input {
   padding: 10px;
   border: none;
@@ -163,35 +172,26 @@ iframe {
   border-radius: 8px;
   background: #4da6ff;
   color: white;
-  cursor: pointer;
 }
 
-#error {
-  color: #ff6b6b;
-  font-size: 12px;
-}
-
-/* ✅ MOBILE FIX */
+/* ✅ MOBILE */
 @media (max-width: 600px) {
 
   .header {
     flex-direction: column;
-    align-items: stretch;
     gap: 8px;
   }
 
   .viewer-inline {
-    margin-left: 0;
     align-self: flex-end;
   }
 
   .viewer-inline iframe {
     width: 120px;
-    height: 50px;
   }
 
-  .table iframe {
-    height: 160px; /* ✅ encore plus lisible mobile */
+  .event iframe {
+    height: 130px; /* ✅ plus lisible mobile */
   }
 
 }
@@ -199,16 +199,6 @@ iframe {
 </head>
 
 <body>
-
-<!-- LOGIN -->
-<div id="login-screen">
-  <div class="login-box">
-    <h2>🦋 Accès Papillon</h2>
-    <input type="password" id="password" placeholder="Mot de passe" enterkeyhint="done" autofocus>
-    <button onclick="checkPassword()">Entrer</button>
-    <p id="error"></p>
-  </div>
-</div>
 
 <!-- HEADER -->
 <div class="header">
@@ -235,15 +225,37 @@ iframe {
       <iframe class="gifts" src="https://tikfinity.zerody.one/widget/gifts?cid=3193073"></iframe>
     </div>
 
+    <!-- ✅ FIX ICI -->
     <div class="widget">
       <div class="title">📊 Viewer & Activité</div>
 
       <div class="table">
-        <iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=follower"></iframe>
-        <iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=gifter"></iframe>
-        <iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=subscriber"></iframe>
-        <iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=share"></iframe>
-        <iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=like"></iframe>
+
+        <div class="event">
+          <div class="event-title">👤 Last Follow</div>
+          <iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=follower"></iframe>
+        </div>
+
+        <div class="event">
+          <div class="event-title">🎁 Last Gift</div>
+          <iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=gifter"></iframe>
+        </div>
+
+        <div class="event">
+          <div class="event-title">⭐ Last Sub</div>
+          <iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=subscriber"></iframe>
+        </div>
+
+        <div class="event">
+          <div class="event-title">🔄 Last Share</div>
+          <iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=share"></iframe>
+        </div>
+
+        <div class="event">
+          <div class="event-title">❤️ Last Like</div>
+          <iframe src="https://tikfinity.zerody.one/widget/lastx?cid=3193073&x=like"></iframe>
+        </div>
+
       </div>
     </div>
 
@@ -271,27 +283,6 @@ iframe {
   </div>
 
 </div>
-
-<script>
-const correctPassword = "251289";
-
-function checkPassword() {
-  const input = document.getElementById("password").value;
-
-  if (input === correctPassword) {
-    document.getElementById("login-screen").style.display = "none";
-  } else {
-    document.getElementById("error").innerText = "Mot de passe incorrect";
-  }
-}
-
-/* ✅ touche entrée */
-document.getElementById("password").addEventListener("keydown", function(e) {
-  if (e.key === "Enter") {
-    checkPassword();
-  }
-});
-</script>
 
 </body>
 </html>
