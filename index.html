@@ -180,9 +180,9 @@ iframe {
 
 /* 🔥 override du style global iframe */
 .viewer-inline iframe {
-  width: 60px;
+  min-width: 70px;
+  width: auto;
   height: 40px;
-  border: none;
 }
 	
 </style>
@@ -193,7 +193,7 @@ iframe {
 <div id="login-screen">
   <div class="login-box">
     <h2>🦋 Accès Papillon</h2>
-    <input type="password" id="password" placeholder="Mot de passe">
+    <input type="password" id="password" placeholder="Mot de passe" enterkeyhint="done" autofocus>
     <button onclick="checkPassword()">Entrer</button>
     <p id="error"></p>
   </div>
@@ -295,6 +295,12 @@ function checkPassword() {
     document.getElementById("error").innerText = "Mot de passe incorrect";
   }
 }
+	
+document.getElementById("password").addEventListener("keydown", function(e) {
+  if (e.key === "Enter") {
+    checkPassword();
+  }
+});
 </script>
 
 </body>
